@@ -34,4 +34,8 @@ What systems does Samba run on?
 
 ```unix```
 
+**Enumerating SMB**
+
+Enumeration is the process of gathering information on a target in order to find potential attack vectors and aid in exploitation.
+
 
