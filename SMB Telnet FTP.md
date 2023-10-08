@@ -104,4 +104,10 @@ Got it? Okay, let's do this!
 
 **Questions / Answers**
 
+What would be the correct syntax to access an SMB share called "secret" as user "suit" on a machine with the IP 10.10.10.2 on the default port?
+
+```smbclient //10.10.10.2/secret -U suit```
+
+**Understanding Telnet**
+
 
