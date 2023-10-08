@@ -72,4 +72,34 @@ TAG      |||||      FUNCTION
 
 Now we understand our enumeration tools, let's get started!
 
+**Exploiting SMB**
+
+Types of SMB Exploit
+
+While there are vulnerabilities such as CVE-2017-7494 that can allow remote code execution by exploiting SMB, you're more likely to encounter a situation where the best way into a system is due to misconfigurations in the system. In this case, we're going to be exploiting anonymous SMB share access- a common misconfiguration that can allow us to gain information that will lead to a shell.
+
+Method Breakdown
+
+So, from our enumeration stage, we know:
+
+    - The SMB share location
+
+    - The name of an interesting SMB share
+
+SMBClient
+
+Because we're trying to access an SMB share, we need a client to access resources on servers. We will be using SMBClient because it's part of the default samba suite. While it is available by default on Kali and Parrot
+
+We can remotely access the SMB share using the syntax:
+
+```smbclient //[IP]/[SHARE]```
+
+Followed by the tags:
+
+```-U [name]``` : to specify the user
+
+```-p [port]``` : to specify the port
+
+Got it? Okay, let's do this!
+
 
