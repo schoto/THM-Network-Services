@@ -217,4 +217,32 @@ You can connect to a telnet server with the following syntax:
 
 We're going to need to keep this in mind as we try and exploit this machine.
 
+What is a Reverse Shell?
+
+![EUC7VS6](https://github.com/schoto/THM-Network-Services/assets/69323411/82c5bff3-9c22-416a-a1d8-e9b59a3d16bf)
+
+A "shell" can simply be described as a piece of code or program which can be used to gain code or command execution on a device.
+
+A reverse shell is a type of shell in which the target machine communicates back to the attacking machine.
+
+The attacking machine has a listening port, on which it receives the connection, resulting in code or command execution being achieved.
+
+**Questions / Answers**
+
+Okay, let's try and connect to this telnet port! If you get stuck, have a look at the syntax for connecting outlined above.
+
+Great! It's an open telnet connection! What welcome message do we receive?
+
+```skiddys backdoor.```
+
+Let's try executing some commands, do we get a return on any input we enter into the telnet session? (Y/N)
+
+N
+
+Hmm... that's strange. Let's check to see if what we're typing is being executed as a system command.
+
+It doesn't work
+
+**Understanding FTP**
+
 
