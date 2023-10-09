@@ -146,6 +146,47 @@ encryption
 
 **Enumareting Telnet**
 
+Enumeration
+
+We've already seen how key enumeration can be in exploiting a misconfigured network service.
+However, vulnerabilities that could be potentially trivial to exploit don't always jump out at us. For that reason, especially when it comes to enumerating network services, we need to be thorough in our method. 
+
+Port Scanning
+
+Let's start out the same way we usually do, a port scan, to find out as much information as we can about the services, applications, structure and operating system of the target machine. Scan the machine with nmap.
+
+**Questions / Answers**
+
+How many ports are open on the target machine?    
+
+1
+
+What port is this?
+
+8012
+
+This port is unassigned, but still lists the protocol it's using, what protocol is this?     
+
+tcp
+
+Now re-run the nmap scan, without the -p- tag, how many ports show up as open?
+
+0
+
+Here, we see that by assigning telnet to a non-standard port, it is not part of the common ports list, or top 1000 ports, that nmap scans. 
+
+It's important to try every angle when enumerating, as the information you gather here will inform your exploitation stage.
+
+Based on the title returned to us, what do we think this port could be used for?
+
+a backdoor
+
+Who could it belong to? Gathering possible usernames is an important step in enumeration.
+
+skidy
+
+**Exploiting Telnet**
+
 
 
 
