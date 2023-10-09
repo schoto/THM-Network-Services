@@ -126,6 +126,26 @@ The user connects to the server by using the Telnet protocol, which means enteri
 The user then executes commands on the server by using specific Telnet commands in the Telnet prompt. 
 You can connect to a telnet server with the following syntax: ```telnet [ip] [port]```
 
+**Questions / Answers**
+
+What is Telnet?    
+
+application protocol
+
+What has slowly replaced Telnet?    
+
+```ssh```
+
+How would you connect to a Telnet server with the IP 10.10.10.3 on port 23?
+
+```telnet 10.10.10.3 23```
+
+The lack of what, means that all Telnet communication is in plaintext?
+
+encryption
+
+**Enumareting Telnet**
+
 
 
 
