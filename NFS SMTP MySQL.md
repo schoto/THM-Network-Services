@@ -77,3 +77,5 @@ What is the latest version of NFS? [released in 2016, but is still up to date as
 
 **Enumerating NFS**
 
+Enumeration is defined as "a process which establishes an active connection to the target hosts to discover potential attack vectors in the system, and the same can be used for further exploitation of the system." - Infosec Institute. It is a critical phase when considering how to enumerate and exploit a remote machine - as the information you will use to inform your attacks will come from this stage
+
