@@ -397,3 +397,15 @@ SECTION      ||||||||       FUNCTION
 
 
 Let's crack some passwords!
+
+**Questions / Answers**
+
+What is the password for the user "mike"?
+
+password (very original)
+
+What is ftp.txt?
+
+THM{y0u_g0t_th3_ftp_fl4g}
+
+
