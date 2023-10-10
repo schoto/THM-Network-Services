@@ -311,4 +311,38 @@ It's worth noting  that some vulnerable versions of in.ftpd and some other FTP s
 This can be exploited because you can issue cwd commands before authentication, and if there's a home directory- there is more than likely a user account to go with it. 
 While this bug is found mainly within legacy systems, it's worth knowing about, as a way to exploit FTP.
 
+**Questions / Answers**
+
+How many ports are open on the target machine? 
+
+To do so we run this command
+
+```
+nmap 10.10.110.119
+```
+
+The answer is 2
+
+What port is ftp running on?
+
+21
+
+What variant of FTP is running on it?  
+
+vsftpd
+
+
+Great, now we know what type of FTP server we're dealing with we can check to see if we are able to login anonymously to the FTP server. We can do this using by typing "ftp [IP]" into the console, and entering "anonymous", and no password when prompted.
+
+What is the name of the file in the anonymous FTP directory?
+
+```PUBLIC_NOTICE.txt```
+
+What do we think a possible username
+could be?
+
+mike
+
+**Exploiting FTP**
+
 
