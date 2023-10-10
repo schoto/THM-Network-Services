@@ -345,4 +345,55 @@ mike
 
 **Exploiting FTP**
 
+Types of FTP Exploit
 
+Similarly to Telnet, when using FTP both the command and data channels are unencrypted. Any data sent over these channels can be intercepted and read.
+
+With data from FTP being sent in plaintext, if a man-in-the-middle attack took place an attacker could reveal anything sent through this protocol (such as passwords). An article written by JSCape demonstrates and explains this process using ARP-Poisoning to trick a victim into sending sensitive information to an attacker, rather than a legitimate source.
+
+When looking at an FTP server from the position we find ourselves in for this machine, an avenue we can exploit is weak or default password configurations.
+
+Method Breakdown
+
+So, from our enumeration stage, we know:
+
+    - There is an FTP server running on this machine
+
+    - We have a possible username
+
+Using this information, let's try and bruteforce the password of the FTP Server.
+
+Hydra
+
+Hydra is a very fast online password cracking tool, which can perform rapid dictionary attacks against more than 50 Protocols, including Telnet, RDP, SSH, FTP, HTTP, HTTPS, SMB, several databases and much more. Hydra comes by default on both Parrot and Kali
+
+The syntax for the command we're going to use to find the passwords is this:
+
+```hydra -t 4 -l dale -P /usr/share/wordlists/rockyou.txt -vV 10.10.10.6 ftp```
+
+Let's break it down:
+
+SECTION      ||||||||       FUNCTION
+
+```hydra```                   Runs the hydra tool
+
+
+```-t 4```                    Number of parallel connections per target
+
+
+```-l [user]```               Points to the user who's account you're trying to compromise
+
+
+```-P``` [path to dictionary] Points to the file containing the list of possible passwords
+
+
+```-vV```                     Sets verbose mode to very verbose, shows the login+pass combination for each attempt
+
+
+```[machine IP]```            The IP address of the target machine
+
+
+```ftp / protocol```          Sets the protocol
+
+
+Let's crack some passwords!
