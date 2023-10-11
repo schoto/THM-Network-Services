@@ -119,3 +119,15 @@ Tag	||||||| Function
 
 Now we understand our tools, let's get started!
 
+**Questions / Answers**
+
+Conduct a thorough port scan scan of your choosing, how many ports are open?
+
+```nmap 10.10.234.244```
+
+7 ports are open
+
+Which port contains the service we're looking to enumerate?
+
+```2049```
+
