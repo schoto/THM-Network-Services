@@ -171,3 +171,7 @@ Y
 
 **Exploiting NFS**
 
+We're done, right?
+
+Not quite, if you have a low privilege shell on any machine and you found that a machine has an NFS share you might be able to use that to escalate privileges, depending on how it is configured.
+
