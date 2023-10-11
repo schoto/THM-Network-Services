@@ -131,3 +131,22 @@ Which port contains the service we're looking to enumerate?
 
 ```2049```
 
+Now, use /usr/sbin/showmount -e [IP] to list the NFS shares, what is the name of the visible share?
+
+```/usr/sbin/showmount -e 10.10.215.117```
+
+```/home```
+
+
+Time to mount the share to our local machine!
+
+First, use "```mkdir /tmp/mount```" to create a directory on your machine to mount the share to. This is in the /tmp directory- so be aware that it will be removed on restart.
+
+Then, use the mount command we broke down earlier to mount the NFS share to your local machine. Change directory to where you mounted the share- what is the name of the folder inside?
+
+```mkdir /tmp/mount```
+
+```sudo mount -t nfs 10.10.215.117:home /tmp/mount/ -nolock```
+
+```cd /tmp/mount``` then ```ls``` and we will see ```cappucino```
+
