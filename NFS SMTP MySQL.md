@@ -150,3 +150,24 @@ Then, use the mount command we broke down earlier to mount the NFS share to your
 
 ```cd /tmp/mount``` then ```ls``` and we will see ```cappucino```
 
+Have a look inside this directory, look at the files. Looks like  we're inside a user's home directory...
+
+Interesting! Let's do a bit of research now, have a look through the folders. Which of these folders could contain keys that would give us remote access to the server?
+
+```.ssh```
+
+Which of these keys is most useful to us?
+
+```id_rsa```
+
+
+Copy this file to a different location your local machine, and change the permissions to "600" using "chmod 600 [file]".
+
+Assuming we were right about what type of directory this is, we can pretty easily work out the name of the user this key corresponds to.
+
+Can we log into the machine using ssh -i <key-file> <username>@<ip> ? (Y/N)
+
+Y
+
+**Exploiting NFS**
+
