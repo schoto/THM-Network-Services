@@ -215,3 +215,10 @@ If this is still hard to follow, here's a step by step of the actions we're taki
 
 Lets do this!
 
+**Questions / Answers**
+
+First, change directory to the mount point on your machine, where the NFS share should still be mounted, and then into the user's home directory.
+
+Download the bash executable to your Downloads directory. Then use "cp ~/Downloads/bash ." to copy the bash executable to the NFS share. The copied bash shell must be owned by a root user, you can set this using "sudo chown root bash"
+
+
