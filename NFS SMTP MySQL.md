@@ -235,4 +235,8 @@ thm{nfs_got_pwned}
 
 **Understanding SMTP**
 
+What is SMTP?
+
+SMTP stands for "Simple Mail Transfer Protocol". It is utilised to handle the sending of emails. In order to support email services, a protocol pair is required, comprising of SMTP and POP/IMAP. Together they allow the user to send outgoing mail and retrieve incoming mail, respectively.
+
 
