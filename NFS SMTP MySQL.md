@@ -221,4 +221,16 @@ First, change directory to the mount point on your machine, where the NFS share 
 
 Download the bash executable to your Downloads directory. Then use "cp ~/Downloads/bash ." to copy the bash executable to the NFS share. The copied bash shell must be owned by a root user, you can set this using "sudo chown root bash"
 
+Now, we're going to add the SUID bit permission to the bash executable we just copied to the share using "sudo chmod +[permission] bash". What letter do we use to set the SUID bit set using chmod?
+
+```s```
+
+Let's do a sanity check, let's check the permissions of the "bash" executable using "ls -la bash". What does the permission set look like? Make sure that it ends with -sr-x.
+
+```-rwsr-sr-x```
+
+Great! If all's gone well you should have a shell as root! What's the root flag?
+
+thm{nfs_got_pwned}
+
 
