@@ -534,5 +534,32 @@ The answer
 
 ```polosmtp.home```
 
+What Mail Transfer Agent (MTA) is running the SMTP server? This will require some external research.
 
+```postfix```
+
+Good! We've now got a good amount of information on the target system to move onto the next stage. Let's search for the module "smtp_enum", what's it's full module name?
+
+```auxiliary/scanner/smtp/smtp_enum```
+
+
+We're going to be using the "top-usernames-shortlist.txt" wordlist from the Usernames subsection of seclists (/usr/share/wordlists/SecLists/Usernames if you have it installed).
+
+Seclists is an amazing collection of wordlists. If you're running Kali or Parrot you can install seclists with: "sudo apt install seclists" Alternatively, you can download the repository from here.
+
+What option do we need to set to the wordlist's path?
+
+```user_file```
+
+Once we've set this option, what is the other essential paramater we need to set?
+
+```rhosts```
+
+Now, run the exploit, this may take a few minutes, so grab a cup of tea, coffee, water. Keep yourself hydrated!
+
+Okay! Now that's finished, what username is returned?
+
+```administrator```
+
+***Exploiting SMTP**
 
