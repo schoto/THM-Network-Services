@@ -239,4 +239,11 @@ What is SMTP?
 
 SMTP stands for "Simple Mail Transfer Protocol". It is utilised to handle the sending of emails. In order to support email services, a protocol pair is required, comprising of SMTP and POP/IMAP. Together they allow the user to send outgoing mail and retrieve incoming mail, respectively.
 
+The SMTP server performs three basic functions:
 
+- It verifies who is sending emails through the SMTP server.
+ 
+- It sends the outgoing mail
+ 
+- If the outgoing mail can't be delivered it sends the message back to the sender
+ 
