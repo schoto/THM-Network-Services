@@ -287,4 +287,36 @@ Here is a resource that explain the technical implementation, and working of, SM
 
 https://www.afternerd.com/blog/smtp/
 
+**Questions / Answers**
 
+What does SMTP stand for?
+
+```simple mail transfer protocol```
+
+What does SMTP handle the sending of? (answer in plural)
+
+```emails```
+
+What is the first step in the SMTP process?
+
+```smtp handshake```
+
+What is the default SMTP port?
+
+```25```
+
+Where does the SMTP server send the email if the recipient's server is not available?
+
+```smtp queue```
+
+On what server does the Email ultimately end up on?
+
+```pop/imap```
+
+Can a Linux machine run an SMTP server? (Y/N)
+
+Y
+
+Can a Windows machine run an SMTP server? (Y/N)
+
+Y
