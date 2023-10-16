@@ -378,7 +378,7 @@ https://tryhackme.com/module/metasploit
 
 ```mfconsole```
 
-But ```mfconsole``` wouldn't work, so I had to update it by ```msfupdate```
+But ```msfconsole``` wouldn't work, so I had to update it by ```msfupdate```
 
 ```
 This copy of metasploit-framework is more than two weeks old.
@@ -454,6 +454,85 @@ Note: root's PATH should usually contain /usr/local/sbin, /usr/sbin and /sbin
 E: Sub-process /usr/bin/dpkg returned an error code (2)
 msf6 > 
 ```
+
+Let's search for the module "smtp_version", what's it's full module name?
+
+```search smtp_version```
+
+And we have this output
+
+```
+msf6 > search smtp_version
+
+Matching Modules
+================
+
+   #  Name                                 Disclosure Date  Rank    Check  Description
+   -  ----                                 ---------------  ----    -----  -----------
+   0  auxiliary/scanner/smtp/smtp_version                   normal  No     SMTP Banner Grabber
+
+
+Interact with a module by name or index. For example info 0, use 0 or use auxiliary/scanner/smtp/smtp_version
+
+msf6 > 
+
+```
+
+What we need is this piece ```auxiliary/scanner/smtp/smtp_version```, that's the answer to the question
+
+Great, now- select the module and list the options. How do we do this?
+
+```options```
+
+The output
+
+```
+msf6 > options
+
+Global Options:
+===============
+
+   Option             Current Setting    Description
+   ------             ---------------    -----------
+   ConsoleLogging     false              Log all console input and output
+   LogLevel           0                  Verbosity of logs (default 0, max 3)
+   MeterpreterPrompt  meterpreter        The meterpreter prompt string
+   MinimumRank        0                  The minimum rank of exploits that wil
+                                         l run without explicit confirmation
+   Prompt             msf6               The prompt string
+   PromptChar         >                  The prompt character
+   PromptTimeFormat   %Y-%m-%d %H:%M:%S  Format for timestamp escapes in promp
+                                         ts
+   SessionLogging     false              Log all input and output for sessions
+   SessionTlvLogging  false              Log all incoming and outgoing TLV pac
+                                         kets
+   TimestampOutput    false              Prefix all console output with a time
+                                         stamp
+
+msf6 > 
+
+```
+
+Have a look through the options, does everything seem correct? What is the option we need to set?
+
+```RHOSTS```
+
+Set that to the correct value for your target machine. Then run the exploit. What's the system mail name?
+
+```
+msf6 auxiliary(scanner/smtp/smtp_version) > set RHOSTS 10.10.142.118
+RHOSTS => 10.10.142.118
+msf6 auxiliary(scanner/smtp/smtp_version) > run
+
+[+] 10.10.142.118:25      - 10.10.142.118:25 SMTP 220 polosmtp.home ESMTP Postfix (Ubuntu)\x0d\x0a
+[*] 10.10.142.118:25      - Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+msf6 auxiliary(scanner/smtp/smtp_version) > 
+
+```
+The answer 
+
+```polosmtp.home```
 
 
 
