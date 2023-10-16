@@ -348,6 +348,112 @@ This technique could be adapted in future to work against other vulnerable SMTP 
 
 Now we've covered the theory. Let's get going!
 
-*8Questions / Answers**
+**Questions / Answers**
+
+First, lets run a port scan against the target machine, same as last time. What port is SMTP running on?
+
+```
+root@ip-10-10-238-193:~# nmap 10.10.142.118
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2023-10-16 21:05 BST
+Nmap scan report for ip-10-10-142-118.eu-west-1.compute.internal (10.10.142.118)
+Host is up (0.00077s latency).
+Not shown: 998 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+25/tcp open  smtp
+MAC Address: 02:7B:04:FE:A2:87 (Unknown)
+
+Nmap done: 1 IP address (1 host up) scanned in 1.72 seconds
+root@ip-10-10-238-193:~# 
+```
+Answer: 25
+
+
+Okay, now we know what port we should be targeting, let's start up Metasploit. What command do we use to do this?
+
+If you would like some more help or practice using Metasploit, TryHackMe has a module on Metasploit that you can check out here:
+
+https://tryhackme.com/module/metasploit
+
+```mfconsole```
+
+But ```mfconsole``` wouldn't work, so I had to update it by ```msfupdate```
+
+```
+This copy of metasploit-framework is more than two weeks old.
+ Consider running 'msfupdate' to update to the latest version.
+msfupdate
+                                                  
+                                   ___          ____
+                               ,-""   `.      < HONK >
+                             ,'  _   e )`-._ /  ----
+                            /  ,' `-._<.===-'
+                           /  /
+                          /  ;
+              _          /   ;
+ (`._    _.-"" ""--..__,'    |
+ <_  `-""                     \
+  <`-                          :
+   (__   <__.                  ;
+     `-.   '-.__.      _.'    /
+        \      `-.__,-'    _,'
+         `._    ,    /__,-'
+            ""._\__,'< <____
+                 | |  `----.`.
+                 | |        \ `.
+                 ; |___      \-``
+                 \   --<
+                  `.`.<
+                    `-'
+
+
+
+       =[ metasploit v6.3.5-dev-                          ]
++ -- --=[ 2294 exploits - 1201 auxiliary - 410 post       ]
++ -- --=[ 968 payloads - 45 encoders - 11 nops            ]
++ -- --=[ 9 evasion                                       ]
+
+Metasploit tip: Use the edit command to open the 
+currently active module in your editor
+Metasploit Documentation: https://docs.metasploit.com/
+
+msf6 > msfupdate
+[*] exec: msfupdate
+
+Adding metasploit-framework to your repository list..OK
+Updating package cache..E: Failed to fetch http://debian.neo4j.org/repo/stable/InRelease  Clearsigned file isn't valid, got 'NOSPLIT' (does the network require authentication?)
+E: The repository 'http://debian.neo4j.org/repo stable/ InRelease' is no longer signed.
+OK
+Checking for and installing update..
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  docutils-common gir1.2-goa-1.0 gir1.2-snapd-1 libpkcs11-helper1
+  linux-headers-4.15.0-115 linux-headers-4.15.0-115-generic
+  linux-image-4.15.0-115-generic linux-modules-4.15.0-115-generic
+  linux-modules-extra-4.15.0-115-generic python-bs4 python-chardet
+  python-dicttoxml python-dnspython python-html5lib python-jsonrpclib
+  python-lxml python-mechanize python-olefile python-pypdf2 python-slowaes
+  python-webencodings python-xlsxwriter python3-botocore python3-docutils
+  python3-jmespath python3-pygments python3-roman python3-rsa
+  python3-s3transfer xml-core
+Use 'apt autoremove' to remove them.
+The following packages will be upgraded:
+  metasploit-framework
+1 to upgrade, 0 to newly install, 0 to remove and 351 not to upgrade.
+Need to get 327 MB of archives.
+After this operation, 91.3 MB of additional disk space will be used.
+Get:1 http://downloads.metasploit.com/data/releases/metasploit-framework/apt lucid/main amd64 metasploit-framework amd64 6.3.39+20231016102701~1rapid7-1 [327 MB]
+Fetched 327 MB in 6s (51.3 MB/s)                                                
+dpkg: warning: 'ldconfig' not found in PATH or not executable
+dpkg: warning: 'start-stop-daemon' not found in PATH or not executable
+dpkg: error: 2 expected programs not found in PATH or not executable
+Note: root's PATH should usually contain /usr/local/sbin, /usr/sbin and /sbin
+E: Sub-process /usr/bin/dpkg returned an error code (2)
+msf6 > 
+```
+
 
 
