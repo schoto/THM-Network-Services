@@ -563,3 +563,11 @@ Okay! Now that's finished, what username is returned?
 
 ***Exploiting SMTP**
 
+What do we know?
+
+Okay, at the end of our Enumeration section we have a few vital pieces of information:
+
+1. A user account name
+
+2. The type of SMTP server and Operating System running.
+
