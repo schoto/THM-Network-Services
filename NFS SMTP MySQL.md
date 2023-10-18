@@ -572,3 +572,36 @@ Okay, at the end of our Enumeration section we have a few vital pieces of inform
 2. The type of SMTP server and Operating System running.
 
 We know from our port scan, that the only other open port on this machine is an SSH login. We're going to use this information to try and bruteforce the password of the SSH login for our user using Hydra.
+
+Preparation
+
+It's advisable that you exit Metasploit to continue the exploitation of this section of the room. Secondly, it's useful to keep a note of the information you gathered during the enumeration stage, to aid in the exploitation.
+
+Hydra
+
+There is a wide array of customisability when it comes to using Hydra, and it allows for adaptive password attacks against of many different services, including SSH. Hydra comes by default on both Parrot and Kali, however if you need it, you can find the GitHub here.
+
+Hydra uses dictionary attacks primarily, both Kali Linux and Parrot OS have many different wordlists in the "/usr/share/wordlists" directory- if you'd like to browse and find a different wordlists to the widely used "rockyou.txt". Likewise I recommend checking out SecLists for a wider array of other wordlists that are extremely useful for all sorts of purposes, other than just password cracking. E.g. subdomain enumeration
+The syntax for the command we're going to use to find the passwords is this:
+
+
+"```hydra -t 16 -l USERNAME -P /usr/share/wordlists/rockyou.txt -vV MACHINE_IP ssh```"
+
+Let's break it down:
+
+
+SECTION ||||||||||||	FUNCTION
+
+```hydra```	Runs the hydra tool
+
+```-t 16``` Number of parallel connections per target
+
+```-l [user]```	Points to the user who's account you're trying to compromise
+
+```-P [path to dictionary]```	Points to the file containing the list of possible passwords
+
+```-vV``` Sets verbose mode to very verbose, shows the login+pass combination for each attempt
+
+```[machine IP]```	The IP address of the target machine
+
+```ssh / protocol```	Sets the protocol
