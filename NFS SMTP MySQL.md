@@ -605,3 +605,15 @@ SECTION ||||||||||||	FUNCTION
 ```[machine IP]```	The IP address of the target machine
 
 ```ssh / protocol```	Sets the protocol
+
+**Questions / Answers**
+
+What is the password of the user we found during our enumeration stage?
+
+```alejandro```
+
+Great! Now, let's SSH into the server as the user, what is contents of smtp.txt
+
+```THM{who_knew_email_servers_were_c00l?}```
+
+
