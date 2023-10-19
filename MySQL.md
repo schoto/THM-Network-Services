@@ -103,3 +103,14 @@ Search for, select and list the options it needs. What three options do we need 
 
 ```PASSWORD/RHOSTS/USERNAME```
 
+Run the exploit. By default it will test with the "select version()" command, what result does this give you?
+
+```5.7.29-0ubuntu0.18.04.1```
+
+
+Great! We know that our exploit is landing as planned. Let's try to gain some more ambitious information. Change the "sql" option to "show databases". how many databases are returned?
+
+4
+
+**Exploiting MySQL**
+
