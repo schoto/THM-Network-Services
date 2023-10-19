@@ -72,3 +72,34 @@ The Scenario
 
 Typically, you will have gained some initial credentials from enumerating other services that you can then use to enumerate and exploit the MySQL service. As this room focuses on exploiting and enumerating the network service, for the sake of the scenario, we're going to assume that you found the credentials: "root:password" while enumerating subdomains of a web server. After trying the login against SSH unsuccessfully, you decide to try it against MySQL.
 
+Requirements
+
+You will want to have MySQL installed on your system to connect to the remote MySQL server. In case this isn't already installed, you can install it using ```sudo apt install default-mysql-client```. Don't worry- this won't install the server package on your system- just the client.
+
+Again, we're going to be using Metasploit for this; it's important that you have Metasploit installed, as it is by default on both Kali Linux and Parrot OS.
+
+Alternatives
+
+As with the previous task, it's worth noting that everything we will be doing using Metasploit can also be done either manually or with a set of non-Metasploit tools such as nmap's mysql-enum script: https://nmap.org/nsedoc/scripts/mysql-enum.html or https://www.exploit-db.com/exploits/23081. I recommend that after you complete this room, you go back and attempt it manually to make sure you understand the process that is being used to display the information you acquire.
+
+Okay, enough talk. Let's get going!
+
+**Questions / Answers**
+
+As always, let's start out with a port scan, so we know what port the service we're trying to attack is running on. What port is MySQL using?
+
+```3306```
+
+
+Good, now- we think we have a set of credentials. Let's double check that by manually connecting to the MySQL server. We can do this using the command "mysql -h [IP] -u [username] -p"
+
+
+Okay, we know that our login credentials work. Lets quit out of this session with "exit" and launch up Metasploit.
+
+
+We're going to be using the "mysql_sql" module.
+
+Search for, select and list the options it needs. What three options do we need to set? (in descending order).
+
+```PASSWORD/RHOSTS/USERNAME```
+
