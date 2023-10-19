@@ -40,3 +40,27 @@ https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_SQL_EXECUTION.html
 
 https://www.w3schools.com/php/php_mysql_intro.asp
 
+**Questions / Answers**
+
+What type of software is MySQL?
+
+relational database management system
+
+What language is MySQL based on?
+
+sql
+
+What communication model does MySQL use?
+
+client-server
+
+What is a common application of MySQL?
+
+back end database
+
+What major social network uses MySQL as their back-end database? This will require further research.
+
+Facebook
+
+**Enumerating MySQL**
+
