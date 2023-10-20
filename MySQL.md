@@ -114,3 +114,67 @@ Great! We know that our exploit is landing as planned. Let's try to gain some mo
 
 **Exploiting MySQL**
 
+What do we know?
+
+Let's take a sanity check before moving on to try and exploit the database fully, and gain more sensitive information than just database names. We know:
+
+1. MySQL server credentials
+
+2. The version of MySQL running
+
+3. The number of Databases, and their names.
+
+Key Terminology
+
+In order to understand the exploits we're going to use next- we need to understand a few key terms.
+
+Schema:
+
+In MySQL, physically, a schema is synonymous with a database. You can substitute the keyword "SCHEMA" instead of DATABASE in MySQL SQL syntax, for example using CREATE SCHEMA instead of CREATE DATABASE. It's important to understand this relationship because some other database products draw a distinction. For example, in the Oracle Database product, a schema represents only a part of a database: the tables and other objects owned by a single user.
+
+Hashes:
+
+Hashes are, very simply, the product of a cryptographic algorithm to turn a variable length input into a fixed length output.
+
+In MySQL hashes can be used in different ways, for instance to index data into a hash table. Each hash has a unique ID that serves as a pointer to the original data. This creates an index that is significantly smaller than the original data, allowing the values to be searched and accessed more efficiently
+
+However, the data we're going to be extracting are password hashes which are simply a way of storing passwords not in plaintext format.
+
+Lets get cracking.
+
+**Questions / Answers**
+
+First, let's search for and select the "mysql_schemadump" module. What's the module's full name?
+
+```auxiliary/scanner/mysql/mysql_schemadump```
+
+Great! Now, you've done this a few times by now so I'll let you take it from here. Set the relevant options, run the exploit. What's the name of the last table that gets dumped?
+
+```x$waits_global_by_latency```
+
+Awesome, you have now dumped the tables, and column names of the whole database. But we can do one better... search for and select the "mysql_hashdump" module. What's the module's full name?
+
+```auxiliary/scanner/mysql/mysql_hashdump```
+
+Again, I'll let you take it from here. Set the relevant options, run the exploit. What non-default user stands out to you?
+
+```carl```
+
+
+Another user! And we have their password hash. This could be very interesting. Copy the hash string in full, like: bob:*HASH to a text file on your local machine called "hash.txt".
+
+What is the user/hash combination string?
+
+```carl:*EA031893AA21444B170FC2162A56978B8CEECE18```
+
+Now, we need to crack the password! Let's try John the Ripper against it using: "john hash.txt" what is the password of the user we found?
+
+```doggie```
+
+
+Awesome. Password reuse is not only extremely dangerous, but extremely common. What are the chances that this user has reused their password for a different service?
+
+What's the contents of MySQL.txt
+
+```THM{congratulations_yo_got_the_mySQL_flag}```
+
